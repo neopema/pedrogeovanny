@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap");
+.special-gothic-expanded-one-regular {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  width: 0.36rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.54);
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.72);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+#games {
+  overflow-y: scroll;
+}
+
+#games::before {
+  background-image: url(../../../../../public/images/games-v.jpg);
+  background-position: center center;
+  background-size: 108% auto;
+  filter: blur(0.18rem);
+
+  border-image: fill 1
+    conic-gradient(
+      from 225deg at 50% 72% in oklch,
+      rgba(128, 113, 85, 0.737) 9%,
+      rgba(36, 131, 165, 0.422) 18%,
+      rgba(224, 185, 75, 0.72) 27%,
+      rgba(169, 84, 8, 0.566) 45%,
+      rgba(71, 116, 89, 0.621) 54%,
+      rgba(128, 113, 85, 0.737) 63%
+    );
+  // rgba(255, 20, 79, 0.366) 54%,
+  // animation: rotate 81s linear infinite;
+}
+
+header {
+  padding: 1.8rem 1.26rem;
+  text-align: center;
+  div.title {
+    width: 100%;
+    display: inline-block;
+    div.arinu {
+      img {
+        height: 4.5rem;
+        width: auto;
+      }
+    }
+
+    h3 {
+      display: inline-block;
+      margin: 0;
+      padding-top: 0.72rem;
+      margin-block-end: 1.17rem;
+    }
+  }
+}
+
+.intro {
+  text-align: center;
+
+  div.text {
+    text-align: justify;
+    line-height: 144%;
+    padding: 1.8rem 1.8rem;
+    background-image: linear-gradient(
+      153deg in oklch,
+      rgba(42, 123, 155, 0.45) 0%,
+      rgba(87, 199, 133, 0.45) 28%,
+      rgba(210, 152, 108, 0.45) 54%,
+      rgba(237, 221, 83, 0.45) 72%,
+      rgba(42, 123, 155, 0.45) 100%
+    );
+    span {
+      font-size: 1.27rem;
+    }
+  }
+}
+
+#figmea {
+  div.space {
+    height: 27vh;
+    position: relative;
+    background: conic-gradient(
+      from 82deg at 50% 50%,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(155, 139, 0, 0.55) 1%,
+      rgba(0, 99, 41, 0.45) 3%,
+      rgba(0, 93, 136, 0.45) 5%,
+      rgba(169, 84, 8, 0.54) 7%,
+      rgba(169, 84, 8, 0.54) 49%,
+      rgba(155, 139, 0, 0.55) 50%,
+      rgba(0, 99, 41, 0.45) 52%,
+      rgba(42, 123, 155, 0.35) 54%,
+      rgba(0, 0, 0, 0) 56%
+    );
+  }
+
+  div.space::before {
+    content: ""; /* Necesario para pseudo-elementos */
+    width: 100%;
+    height: 100%;
+
+    position: absolute; /* Posición absoluta */
+    top: 0;
+    left: 0;
+
+    backdrop-filter: blur(0.27rem);
+  }
+
+  div.endspace {
+    height: 27vh;
+    position: relative;
+    background: conic-gradient(
+      from 266deg at 50% 81%,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(169, 84, 8, 0.54) 5%,
+      rgba(169, 84, 8, 0.54) 49%,
+      rgba(0, 0, 0, 0) 52%
+    );
+  }
+
+  div.endspace::before {
+    content: ""; /* Necesario para pseudo-elementos */
+    width: 100%;
+    height: 100%;
+
+    position: absolute; /* Posición absoluta */
+    top: 0;
+    left: 0;
+
+    backdrop-filter: blur(0.27rem);
+  }
+
+  div.info {
+    text-align: center;
+    padding: 1.8rem 1.8rem;
+    background-color: rgba(169, 84, 8, 0.54);
+    div.logo {
+      margin-bottom: 3.6rem;
+      span {
+        display: block;
+        font-size: 1.17rem;
+        font-weight: 500;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    div.desc {
+      padding: 0 1.8rem;
+      margin-bottom: 3.6rem;
+      p {
+        line-height: 144%;
+        text-align: justify;
+      }
+    }
+  }
+}
+
+div.bypg {
+  // background-color: rgba(169, 84, 8, 0.54);
+  text-align: center;
+  padding-top: 1.8rem;
+  img {
+    width: 6.3rem;
+    height: auto;
+  }
+  div {
+    font-size: 1.17rem;
+  }
+}
+
+footer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  //alinear al centro
+  justify-content: center;
+  align-items: center;
+
+  div.social-media {
+    padding-left: 1rem;
+    text-align: left;
+    width: 33%;
+
+    a {
+      display: inline-block;
+      margin: 0 0.09rem;
+    }
+  }
+
+  nav {
+    padding-right: 1rem;
+    width: 66%;
+    text-align: right;
+
+    ul {
+      display: inline-block;
+      li {
+        a {
+          font-size: 0.81rem;
+        }
+      }
+    }
+  }
+}
+
+@media (width >= 720px) {
+  #games::before {
+    filter: blur(0.27rem);
+    border-image: fill 1
+      conic-gradient(
+        from 225deg at 50% 59% in oklch,
+        rgba(228, 213, 185, 0.537) 9%,
+        rgba(36, 131, 165, 0.422) 18%,
+        rgba(224, 185, 75, 0.72) 27%,
+        rgba(169, 84, 8, 0.566) 45%,
+        rgba(71, 116, 89, 0.621) 54%,
+        rgba(239, 227, 209, 0.537) 63%,
+        rgba(228, 213, 185, 0.537) 72%
+      );
+  }
+
+  header {
+    padding: 2.7rem 1.8rem;
+  }
+
+  .intro {
+    div.text {
+      padding: 1.8rem 9rem;
+    }
+  }
+
+  #figmea {
+    div.space {
+      height: 45vh;
+    }
+
+    div.info {
+      padding: 1.8rem 9rem;
+      div.logo {
+        span {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+
+  // #figmea {
+  //   padding: 0 3.6rem;
+  // }
+}
+
+@media (width >= 1024px) {
+  #games::before {
+    background-image: url(../../../../../public/images/games.jpg);
+    background-position: bottom center;
+    background-size: 100% auto;
+    filter: blur(0.36rem);
+    border-image: fill 1
+      conic-gradient(
+        from 225deg at 50% 69% in oklch,
+        rgba(228, 213, 185, 0.537) 9%,
+        rgba(36, 131, 165, 0.422) 18%,
+        rgba(224, 185, 75, 0.72) 27%,
+        rgba(169, 84, 8, 0.566) 45%,
+        rgba(71, 116, 89, 0.621) 54%,
+        rgba(239, 227, 209, 0.537) 63%,
+        rgba(228, 213, 185, 0.537) 72%
+      );
+  }
+
+  // #figmea {
+  //   padding: 0 27vw;
+  // }
+
+  #figmea {
+    div.space {
+      height: 54vh;
+    }
+
+    div.info {
+      padding: 1.8rem 27vw;
+      div.logo {
+        margin-bottom: 6.3rem;
+        span {
+          font-size: 2.7rem;
+        }
+      }
+
+      div.desc {
+        margin-bottom: 6.3rem;
+        p {
+          padding: 0 7.2rem;
+        }
+      }
+    }
+
+    // div.endspace {
+    //   height: 45vh;
+    // }
+  }
+
+  .intro {
+    div.text {
+      padding: 1.8rem 1.8rem;
+      max-width: 36rem;
+      display: inline-block;
+    }
+  }
+
+  footer {
+    margin-bottom: 0;
+  }
+}

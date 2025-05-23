@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap");
+.special-gothic-expanded-one-regular {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: -45deg;
+  inherits: false;
+}
+
+#welcome::before {
+  background-image: url(../../../../../public/images/me.webp);
+  background-position: 45% center;
+  background-size: auto 100%;
+
+  border-image: fill 1
+    conic-gradient(
+      from var(--angle) in oklch,
+      rgba(150, 0, 163, 0.27) 9%,
+      rgba(175, 143, 1, 0.3) 18%,
+      rgba(145, 255, 20, 0.366) 27%,
+      rgba(163, 0, 22, 0.36) 45%,
+      rgba(150, 0, 163, 0.27) 72%
+    );
+  animation: rotate 45s linear infinite;
+  filter: blur(0.36rem);
+}
+
+@keyframes rotate {
+  to {
+    --angle: 315deg;
+  }
+}
+
+header {
+  //centrar los elementos
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // background-color: red;
+  height: 72%;
+
+  h1 {
+    margin: 0;
+    font-size: calc(1rem + 8vw + 7vh);
+    line-height: calc(1.8rem + 6vw + 5vh);
+    &::selection {
+      background: #000000;
+      color: #fff; /* Color blanco para el texto seleccionado */
+    }
+    &::-moz-selection {
+      background: #000000;
+      color: #fff; /* Color blanco para el texto seleccionado */
+    }
+  }
+
+  nav {
+    margin-top: 3rem;
+    ul {
+      list-style: none;
+      padding-inline-start: unset;
+      margin-right: 0.9rem;
+      text-align: right;
+      li {
+        padding-top: 0.45rem;
+        a {
+          text-decoration: none;
+          &::selection {
+            background: #000000;
+            color: #fff; /* Color blanco para el texto seleccionado */
+          }
+          &::-moz-selection {
+            background: #000000;
+            color: #fff; /* Color blanco para el texto seleccionado */
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  // background-color: blue;
+  height: 28%;
+  display: flex;
+  flex-direction: column;
+
+  div.social-media {
+    text-align: center;
+    margin: auto 0;
+
+    a {
+      display: inline-block;
+      margin: 0 1.17rem;
+    }
+  }
+  div.mark {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+
+    height: calc(1rem + 5vw + 4vh);
+
+    div {
+      display: inline-block;
+    }
+
+    div.text {
+      text-align: right;
+      margin: auto 0;
+    }
+
+    div.logo {
+      height: 100%;
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  #welcome::before {
+    filter: blur(0.45rem);
+    background-size: 100% auto;
+  }
+
+  header {
+    nav {
+      ul {
+        li {
+          a {
+            &:hover {
+              background-color: rgba($color: #000000, $alpha: 1);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    div.mark {
+      height: calc(1rem + 2vw + 1vh);
+    }
+  }
+}

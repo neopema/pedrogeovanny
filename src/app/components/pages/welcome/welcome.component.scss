@@ -1,0 +1,332 @@
+@property --angle {
+  syntax: "<angle>";
+  initial-value: -70deg;
+  inherits: false;
+}
+
+@property --color1 {
+  syntax: "<color>";
+  initial-value: rgba(255, 145, 20, 0.366);
+  inherits: false;
+}
+
+@property --color2 {
+  syntax: "<color>";
+  initial-value: rgba(175, 143, 1, 0.3);
+  inherits: false;
+}
+
+@property --color3 {
+  syntax: "<color>";
+  initial-value: rgba(145, 255, 20, 0.366);
+  inherits: false;
+}
+
+@property --color4 {
+  syntax: "<color>";
+  initial-value: rgba(150, 0, 163, 0.27);
+  inherits: false;
+}
+
+@property --color5 {
+  syntax: "<color>";
+  initial-value: rgba(163, 0, 22, 0.36);
+  inherits: false;
+}
+
+@property --logo-font-size {
+  syntax: "<font-size>";
+  initial-value: 7.9rem;
+  inherits: false;
+}
+
+#welcome {
+  display: flex;
+  flex-direction: column;
+
+  header {
+    flex-grow: 1;
+  }
+
+  footer {
+    margin-top: auto;
+  }
+
+  ::before {
+    background-image: url(../../../../../public/images/me.webp);
+    background-position: 45% center;
+    background-size: auto 100%;
+    // background-position: 38% 75%;
+    // background-size: auto 150%;
+
+    border-image: fill 1
+      conic-gradient(
+        from -45deg in oklch,
+        var(--color4) 9%,
+        var(--color2) 18%,
+        var(--color3) 27%,
+        var(--color5) 45%,
+        var(--color4) 72%
+      );
+    animation: rotate 45s linear infinite;
+    filter: blur(0.36rem);
+  }
+}
+
+div.mark {
+  padding-top: 4.5rem;
+  height: 4.5rem;
+  text-align: center;
+  div.text {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 0.63rem;
+    text-align: right !important;
+    // padding-right: 0.18rem;
+    span {
+      background-color: rgba($color: #000000, $alpha: 0.36);
+    }
+  }
+  div.logo {
+    background-color: rgba($color: #000000, $alpha: 0.36);
+    display: inline-block;
+    height: 100%;
+    img {
+      height: 100%;
+    }
+  }
+}
+
+header {
+  padding: 0rem 0rem;
+
+  div.mark {
+    display: none;
+  }
+
+  h1 {
+    text-align: left;
+    margin: 0;
+    font-weight: 500;
+    font-size: 7.2rem;
+    line-height: 5.5rem;
+    &::selection {
+      background: #000000;
+      color: #fff; /* Color blanco para el texto seleccionado */
+    }
+    &::-moz-selection {
+      background: #000000;
+      color: #fff; /* Color blanco para el texto seleccionado */
+    }
+    // span {
+    // word-break: break-all;
+    // }
+  }
+
+  nav {
+    margin-top: 3rem;
+    ul {
+      list-style: none;
+      li {
+        padding-top: 1.8rem;
+        a {
+          text-decoration: none;
+          &::selection {
+            background: #000000;
+            color: #fff; /* Color blanco para el texto seleccionado */
+          }
+          &::-moz-selection {
+            background: #000000;
+            color: #fff; /* Color blanco para el texto seleccionado */
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  div.social-media {
+    text-align: center;
+
+    a {
+      display: inline-block;
+      padding: 0 1.17rem;
+    }
+  }
+  div.mark {
+    display: block;
+  }
+}
+
+// .overlay
+// #container::before {
+//   border-image: fill 1
+//     conic-gradient(
+//       from var(--angle) in oklch,
+//       var(--color4) 10%,
+//       var(--color2) 20%,
+//       var(--color3) 30%,
+//       var(--color1) 60%,
+//       var(--color4) 90%
+//     );
+// border-image: fill 1
+// radial-gradient(
+//   ellipse at bottom right in lch,
+//   rgba(175, 143, 1, 0.5),
+//   rgba(255, 20, 20, 0.466) 30%,
+//   rgba(19, 0, 16, 0.8) 90%
+// );
+// }
+
+@keyframes rotate {
+  to {
+    --angle: 315deg;
+  }
+  // 0% {
+  //   --angle: -70deg;
+  // }
+  // 50% {
+  //   --angle: 75deg;
+  // }
+  // 65% {
+  //   --angle: 110deg;
+  // }
+  // 72% {
+  //   --angle: 90deg;
+  // }
+  // 100% {
+  //   --angle: -70deg;
+  // }
+}
+
+@keyframes changeColors {
+  0% {
+    --color1: rgba(0, 4, 19, 0.8);
+    --color2: rgba(175, 143, 1, 0.5);
+    --color3: rgba(145, 255, 20, 0.466);
+    --color4: rgba(0, 4, 19, 0.8);
+  }
+  75% {
+    --color1: rgba(19, 0, 16, 0.8);
+    --color2: rgba(175, 143, 1, 0.5);
+    --color3: rgba(255, 20, 20, 0.466);
+    --color4: rgba(19, 0, 16, 0.8);
+  }
+  100% {
+    --color1: rgba(0, 4, 19, 0.8);
+    --color2: rgba(175, 143, 1, 0.5);
+    --color3: rgba(145, 255, 20, 0.466);
+    --color4: rgba(0, 4, 19, 0.8);
+  }
+}
+
+@media (width >= 750px) {
+  :root {
+    --page-container-width: 72%;
+    --bkg-img-size: 107% auto;
+  }
+
+  header {
+    h1 {
+      margin: 0;
+      font-weight: 500;
+      line-height: unset;
+    }
+
+    nav {
+      margin-top: 9rem;
+      ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0 3.6rem;
+        margin: 0;
+
+        li {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  #welcome {
+    ::before {
+      background-position: center center;
+      background-size: auto 100%;
+      // background-position: 30% center;
+      // background-size: auto 100%;
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  #welcome {
+    ::before {
+      border-image: fill 1
+        conic-gradient(
+          from 220deg in oklch,
+          var(--color4) 9%,
+          var(--color2) 18%,
+          var(--color3) 27%,
+          var(--color5) 45%,
+          var(--color4) 72%
+        );
+      animation: unset;
+      filter: blur(0.36rem);
+
+      background-position: center center;
+      background-size: 100% auto;
+    }
+
+    header {
+      padding: 0;
+      padding-bottom: 0;
+
+      div.mark {
+        padding: 0;
+        display: inline-block;
+        float: right;
+      }
+
+      h1 {
+        font-size: clamp(9rem, 15rem, 18rem) !important;
+        break-inside: avoid;
+        padding: 0 9rem;
+        padding-top: 9.9rem;
+        text-align: center;
+      }
+
+      nav {
+        margin: 0 auto;
+        width: 72%;
+        ul {
+          li {
+            a {
+              &:hover {
+                background-color: rgba($color: #000000, $alpha: 1);
+              }
+            }
+          }
+        }
+      }
+    }
+    footer {
+      // display: flex;
+      // align-items: stretch;
+      div.social-media {
+        text-align: center;
+        // padding: 0 6.3rem;
+        // padding-left: 1.8rem;
+
+        a {
+          display: inline-block;
+          padding: 1.8rem 2.7rem;
+        }
+      }
+      div.mark {
+        display: none;
+        text-align: right !important;
+      }
+    }
+  }
+}

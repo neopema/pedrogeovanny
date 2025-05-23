@@ -1,0 +1,222 @@
+#bio {
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0.36rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.54);
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.72);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+#bio::before {
+  background-image: url(../../../../../public/images/bio-back-m.png);
+  background-position: center center;
+  background-size: 100% 100%;
+  filter: blur(0.09rem);
+}
+
+// .shell {
+//   height: 72%;
+// }
+
+.substance {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template:
+    "main_image main_image" 7.2rem
+    "text text" 1fr
+    "a a" 3.6rem
+    "b b" 2.7rem
+    "c c" 1.8rem
+    "d d" 0.9rem
+    "e e" 0.45rem
+    / 1fr 1fr;
+
+  div {
+    overflow: hidden;
+    // display: inline-block;
+  }
+
+  .text {
+    font-weight: 300;
+    font-size: 0.9rem;
+    background-color: rgba($color: #000000, $alpha: 0.72);
+    height: min-content;
+
+    p {
+      margin: 0 !important;
+      padding: 1.8rem !important;
+
+      a:hover {
+        background-color: white;
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .main_text {
+    grid-area: text;
+  }
+
+  .sec_text {
+    grid-area: sec_text;
+  }
+
+  .main_img {
+    grid-area: main_image;
+    background-image: url("../../../../../public/images/bio.JPG");
+    background-size: 120% auto;
+    background-position: center 27%;
+  }
+
+  .a {
+    grid-area: a;
+    background-color: #4a102a;
+  }
+  .b {
+    grid-area: b;
+    background-color: #85193c;
+  }
+  .c {
+    grid-area: c;
+    background-color: #c5172e;
+  }
+  .d {
+    grid-area: d;
+    background-color: #ffa55d;
+  }
+  .e {
+    grid-area: e;
+    background-color: #fcf259;
+  }
+}
+
+footer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  //alinear al centro
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.8rem;
+
+  div.social-media {
+    padding-left: 1rem;
+    text-align: left;
+    width: 33%;
+
+    a {
+      display: inline-block;
+      margin: 0 0.09rem;
+    }
+  }
+
+  nav {
+    padding-right: 1rem;
+    width: 66%;
+    text-align: right;
+
+    ul {
+      display: inline-block;
+      li {
+        a {
+          font-size: 0.81rem;
+        }
+      }
+    }
+  }
+}
+
+@media (width >= 800px) {
+  .substance {
+    grid-template:
+      "main_image main_image" 18rem
+      "text text" 1fr
+      "a a" 3.6rem
+      "b b" 2.7rem
+      "c c" 1.8rem
+      "d d" 0.9rem
+      "e e" 0.45rem
+      / 1fr 1fr;
+  }
+
+  footer {
+    div.social-media {
+      padding-left: 1rem;
+    }
+
+    nav {
+      padding-right: 1rem;
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  #bio {
+    overflow-y: hidden;
+  }
+
+  #bio::before {
+    background-image: url(../../../../../public/images/bio-back.png);
+    background-position: center top;
+    background-size: 100% auto;
+    filter: blur(0.18rem);
+  }
+
+  .shell {
+    height: 72%;
+    padding: 1.8rem 1.8rem;
+  }
+
+  .substance {
+    display: grid;
+    // margin: 0 auto;
+    gap: 0.26rem;
+    width: 98svh;
+    height: 100%;
+    overflow: hidden;
+    grid-template:
+      "text main_image a b c d e" 1fr
+      "text main_image a b c d e" 1fr
+      / 27fr 13fr 8fr 5fr 3fr 2fr 1fr;
+
+    .text {
+      font-size: 0.9rem;
+      height: 100%;
+      // scrollbar-color: rgb(45, 45, 45) black;
+    }
+
+    .main_img {
+      background-size: auto 100%;
+      background-position: 36% 80%;
+    }
+  }
+
+  footer {
+    margin-top: 0;
+  }
+}
+
+@media (height <= 800px) {
+  #bio {
+    overflow-y: scroll;
+  }
+
+  .substance {
+    div {
+      overflow-y: scroll;
+    }
+  }
+}

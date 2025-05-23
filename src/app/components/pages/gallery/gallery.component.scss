@@ -1,0 +1,29 @@
+#gallery {
+  ::before {
+    background-image: url(../../../../../public/images/gallery.JPG);
+    background-position: 38% 54%;
+    background-size: auto 140%;
+    filter: blur(0.36rem);
+
+    border-image: fill 1
+      conic-gradient(
+        from 335deg in oklch,
+        rgba(255, 94, 20, 0.266) 5%,
+        rgba(255, 238, 0, 0.27) 18%,
+        rgba(214, 164, 0, 0.4) 27%,
+        rgba(255, 20, 79, 0.266) 45%,
+        rgba(255, 94, 20, 0.266) 72%
+      );
+    // animation: rotate 81s linear infinite;
+  }
+}
+
+@media (width >= 1024px) {
+  #gallery {
+    ::before {
+      background-position: 36% 63%;
+      background-size: auto 150%;
+      filter: blur(0.72rem);
+    }
+  }
+}

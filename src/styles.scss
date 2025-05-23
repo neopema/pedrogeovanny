@@ -1,1 +1,100 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Doto";
+  src: url("../public/fonts/Doto.ttf") format("truetype-variations");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "RobotoMono";
+  src: url("../public/fonts/RobotoMono.ttf") format("truetype-variations");
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: "Barriecito";
+  src: url("../public/fonts/Barriecito.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BigShouldersInline";
+  src: url("../public/fonts/BigShouldersInline.ttf")
+    format("truetype-variations");
+  font-weight: 100 900;
+}
+
+:root {
+  --fondo: #000; /* Blanco */
+  --bkg-img-size: auto 107%;
+}
+
+* {
+  color: white;
+}
+
+body {
+  margin: 0;
+  background-color: var(--fondo) !important;
+}
+
+.font-doto {
+  font-family: "Doto";
+}
+
+.font-roboto {
+  font-family: "RobotoMono";
+}
+
+.font-barrio {
+  font-family: "Barriecito";
+}
+
+.font-big-shoulders-inline {
+  font-family: "BigShouldersInline";
+}
+
+.content {
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: fixed;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: -10px;
+    z-index: -1;
+  }
+}
+
+footer {
+  margin-bottom: 1.8rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #000000; /* Negro */
+  }
+}
+
+@media (width >= 1024px) {
+  footer {
+    margin-bottom: 0;
+    nav {
+      ul {
+        li {
+          a:hover {
+            background-color: #000;
+          }
+        }
+      }
+    }
+  }
+}

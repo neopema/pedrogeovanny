@@ -1,0 +1,117 @@
+header {
+  padding: 0.81rem 1.26rem;
+  div.title {
+    width: 100%;
+    display: inline-block;
+    h1 {
+      margin: 0;
+      font-size: 3.6rem;
+      &::selection {
+        background: #000000;
+        color: #fff; /* Color blanco para el texto seleccionado */
+      }
+      &::-moz-selection {
+        background: #000000;
+        color: #fff; /* Color blanco para el texto seleccionado */
+      }
+    }
+
+    h2 {
+      display: inline-block;
+      margin: 0;
+      padding-top: 0.36rem;
+      font-weight: 500;
+      &::selection {
+        background: #c5172e;
+        color: #fff; /* Color blanco para el texto seleccionado */
+      }
+      &::-moz-selection {
+        background: #c5172e;
+        color: #fff; /* Color blanco para el texto seleccionado */
+      }
+    }
+
+    div.menu-btn {
+      display: inline-block;
+      float: right;
+      padding-top: 1rem;
+      .hamburger {
+        width: 1.45rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.27rem;
+        cursor: pointer;
+      }
+      .bar {
+        width: 100%;
+        height: 0.18rem;
+        border-radius: 1rem;
+        background-color: #ffffff;
+      }
+    }
+  }
+
+  nav {
+    display: none;
+    ul {
+      li {
+        a {
+          &::selection {
+            background: #000000;
+            color: #fff; /* Color blanco para el texto seleccionado */
+          }
+          &::-moz-selection {
+            background: #000000;
+            color: #fff; /* Color blanco para el texto seleccionado */
+          }
+        }
+
+        span {
+          &::selection {
+            background: #fff;
+            color: #000000; /* Color blanco para el texto seleccionado */
+          }
+          &::-moz-selection {
+            background: #fff;
+            color: #000000; /* Color blanco para el texto seleccionado */
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  header {
+    padding: 0.9rem 1.8rem;
+
+    div.title {
+      width: unset;
+      div.menu-btn {
+        display: none;
+      }
+    }
+
+    nav {
+      display: inline-block;
+      float: right;
+      text-align: right;
+
+      ul {
+        list-style: none;
+        li {
+          span {
+            cursor: default;
+            color: black;
+          }
+          a {
+            text-decoration: none;
+            &:hover {
+              background-color: rgba($color: #000000, $alpha: 1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
