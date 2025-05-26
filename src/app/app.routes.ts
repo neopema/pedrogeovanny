@@ -37,4 +37,9 @@ export const routes: Routes = [
     component: GalleryComponent,
     title: 'pedro geovanny | archive',
   },
+  {
+    path: 'blog',
+    loadChildren: () =>
+      import('./modules/blog/blog.module').then((m) => m.BlogModule),
+  },
 ];
