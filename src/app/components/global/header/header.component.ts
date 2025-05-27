@@ -8,6 +8,4 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
   @Input() title: string = '';
-
-  routes: string[] = ['bio', 'music', 'games', 'gallery'];
 }

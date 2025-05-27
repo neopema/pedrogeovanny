@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../global/header/header.component';
+import { FooterComponent } from '../../global/footer/footer.component';
 
 @Component({
   selector: 'app-games',
-  imports: [HeaderComponent],
+  imports: [FooterComponent],
   templateUrl: './games.component.html',
   styleUrl: './games.component.scss',
 })

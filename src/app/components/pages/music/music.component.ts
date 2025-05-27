@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../../global/header/header.component';
+import { FooterComponent } from '../../global/footer/footer.component';
 
 @Component({
   selector: 'app-music',
-  imports: [HeaderComponent],
+  imports: [FooterComponent],
   templateUrl: './music.component.html',
   styleUrl: './music.component.scss',
 })

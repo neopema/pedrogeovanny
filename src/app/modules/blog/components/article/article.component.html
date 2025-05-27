@@ -1,1 +1,25 @@
-<p>article works!</p>
+<div class="article content">
+  <app-header [title]="'blog'"></app-header>
+
+  <div class="substance">
+    @if(article){
+    <div>
+      <h1>{{ article.title }}</h1>
+
+      <h4>{{ article.summary }}</h4>
+      <img
+        [src]="article.image"
+        alt="{{ article.title }}"
+        class="article-image"
+      />
+      <div [innerHTML]="article.content"></div>
+    </div>
+    } @else {
+    <div>
+      <p>Artículo no encontrado.</p>
+    </div>
+    }
+  </div>
+
+  <app-footer [current]="'blog'"></app-footer>
+</div>

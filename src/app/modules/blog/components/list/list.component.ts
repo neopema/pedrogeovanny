@@ -3,10 +3,12 @@ import { Article } from '../../../../interfaces/article';
 import { FAKE_ARTICLES } from '../../data/fake-articles';
 import { NgFor } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { HeaderComponent } from '../../../../components/global/header/header.component';
+import { FooterComponent } from '../../../../components/global/footer/footer.component';
 
 @Component({
   selector: 'app-list',
-  imports: [NgFor, RouterLink],
+  imports: [NgFor, RouterLink, HeaderComponent, FooterComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
 })

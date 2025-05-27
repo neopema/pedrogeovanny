@@ -192,41 +192,6 @@ div.shell {
   padding: 0 1.8rem;
 }
 
-footer {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: row;
-  //alinear al centro
-  justify-content: center;
-  align-items: center;
-
-  div.social-media {
-    padding-left: 1rem;
-    text-align: left;
-    width: 33%;
-
-    a {
-      display: inline-block;
-      margin: 0 0.09rem;
-    }
-  }
-
-  nav {
-    padding-right: 1rem;
-    width: 66%;
-    text-align: right;
-
-    ul {
-      display: inline-block;
-      li {
-        a {
-          font-size: 0.81rem;
-        }
-      }
-    }
-  }
-}
-
 @keyframes rotate {
   to {
     --angle: 290deg;
@@ -247,10 +212,6 @@ footer {
 
   .substance {
     padding: 0 27vw;
-  }
-
-  footer {
-    margin-bottom: 0;
   }
 }
 

@@ -1,1 +1,85 @@
-<p>form works!</p>
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+  <pre>{{ articleForm.value | json }}</pre>
+  <div>
+    <label for="title">Título</label>
+    <input id="title" formControlName="title" />
+    <div
+      *ngIf="
+        articleForm.get('title')?.invalid &&
+        (articleForm.get('title')?.dirty || articleForm.get('title')?.touched)
+      "
+    >
+      <small *ngIf="articleForm.get('title')?.errors?.['required']"
+        >El título es obligatorio</small
+      >
+      <small *ngIf="articleForm.get('title')?.errors?.['minlength']"
+        >Debe tener al menos 3 caracteres</small
+      >
+    </div>
+  </div>
+
+  <div>
+    <label for="slug">Slug</label>
+    <input id="slug" formControlName="slug" />
+    <div
+      *ngIf="
+        articleForm.get('slug')?.invalid &&
+        (articleForm.get('slug')?.dirty || articleForm.get('slug')?.touched)
+      "
+    >
+      <small *ngIf="articleForm.get('slug')?.errors?.['required']"
+        >El slug es obligatorio</small
+      >
+      <small *ngIf="articleForm.get('slug')?.errors?.['minlength']"
+        >Debe tener al menos 3 caracteres</small
+      >
+    </div>
+  </div>
+
+  <div>
+    <label for="summary">Resumen</label>
+    <textarea id="summary" formControlName="summary"></textarea>
+    <div
+      *ngIf="
+        articleForm.get('summary')?.invalid &&
+        (articleForm.get('summary')?.dirty ||
+          articleForm.get('summary')?.touched)
+      "
+    >
+      <small *ngIf="articleForm.get('summary')?.errors?.['required']"
+        >El resumen es obligatorio</small
+      >
+      <small *ngIf="articleForm.get('summary')?.errors?.['minlength']"
+        >Debe tener al menos 10 caracteres</small
+      >
+    </div>
+  </div>
+
+  <div>
+    <label for="content">Contenido</label>
+    <textarea id="content" formControlName="content"></textarea>
+    <div
+      *ngIf="
+        articleForm.get('content')?.invalid &&
+        (articleForm.get('content')?.dirty ||
+          articleForm.get('content')?.touched)
+      "
+    >
+      <small *ngIf="articleForm.get('content')?.errors?.['required']"
+        >El contenido es obligatorio</small
+      >
+      <small *ngIf="articleForm.get('content')?.errors?.['minlength']"
+        >Debe tener al menos 20 caracteres</small
+      >
+    </div>
+  </div>
+
+  <div>
+    <label for="image">Imagen (URL)</label>
+    <input id="image" formControlName="image" />
+  </div>
+
+  <button type="submit" [disabled]="articleForm.invalid">
+    {{ isEditMode ? "Actualizar" : "Crear" }}
+  </button>
+</form>

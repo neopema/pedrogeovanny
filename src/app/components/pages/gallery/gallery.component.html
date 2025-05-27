@@ -1,3 +1,35 @@
 <div id="gallery" class="content">
   <app-header [title]="'archive'"></app-header>
+
+  <div class="substance">
+    <div class="gallery">
+      <div (click)="openModal(0)" class="div1"></div>
+      <div (click)="openModal(1)" class="div2"></div>
+      <div (click)="openModal(2)" class="div3"></div>
+      <div (click)="openModal(3)" class="div4"></div>
+      <div (click)="openModal(4)" class="div5"></div>
+      <div (click)="openModal(5)" class="div6"></div>
+      <div (click)="openModal(6)" class="div7"></div>
+      <div (click)="openModal(7)" class="div8"></div>
+      <div (click)="openModal(8)" class="div9"></div>
+      <div (click)="openModal(9)" class="div10"></div>
+      <div (click)="openModal(10)" class="div11"></div>
+      <div (click)="openModal(11)" class="div12"></div>
+    </div>
+  </div>
+
+  <app-footer [current]="'archive'"></app-footer>
+</div>
+
+<div class="modal" [class.hidden]="!modalOpen">
+  <div class="modal-grid">
+    <div class="title font-roboto">
+      <h2>{{ current_modal[0] }}</h2>
+      <a (click)="closeModal()">cerrar</a>
+    </div>
+    <div class="image">
+      <img [src]="current_modal[2]" alt="" />
+    </div>
+    <div class="desc font-roboto">{{ current_modal[1] }}</div>
+  </div>
 </div>
