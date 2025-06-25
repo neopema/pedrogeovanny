@@ -2,7 +2,7 @@ import { Article } from '../../../interfaces/article';
 
 export const FAKE_ARTICLES: Article[] = [
   {
-    id: 1,
+    _id: 1,
     title: 'Primer artículo de ejemplo',
     slug: 'primer-articulo-de-ejemplo',
     summary: 'Este es el resumen del primer artículo.',
@@ -13,7 +13,7 @@ export const FAKE_ARTICLES: Article[] = [
     updatedAt: new Date('2025-05-01T12:00:00'),
   },
   {
-    id: 2,
+    _id: 2,
     title: 'Segundo artículo de ejemplo',
     slug: 'segundo-articulo-de-ejemplo',
     summary: 'Resumen del segundo artículo.',

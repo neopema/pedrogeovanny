@@ -1,5 +1,14 @@
 header {
   padding: 0.81rem 1.26rem;
+
+  &.dark {
+    div.title {
+      h1,
+      a {
+        color: black !important;
+      }
+    }
+  }
   div.title {
     width: 100%;
     display: inline-block;
@@ -27,6 +36,23 @@ header {
       }
       &::-moz-selection {
         background: #c5172e;
+        color: #fff; /* Color blanco para el texto seleccionado */
+      }
+    }
+
+    a {
+      text-decoration: none;
+      &:hover {
+        background-color: rgba($color: #000000, $alpha: 1);
+        color: #999999 !important;
+        text-decoration: underline;
+      }
+      &::selection {
+        background: #000000;
+        color: #fff; /* Color blanco para el texto seleccionado */
+      }
+      &::-moz-selection {
+        background: #000000;
         color: #fff; /* Color blanco para el texto seleccionado */
       }
     }

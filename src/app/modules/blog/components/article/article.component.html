@@ -1,9 +1,9 @@
-<div class="article content">
-  <app-header [title]="'blog'"></app-header>
+<div id="article" class="content">
+  <app-header [title]="''"></app-header>
 
   <div class="substance">
     @if(article){
-    <div>
+    <div id="body">
       <h1>{{ article.title }}</h1>
 
       <h4>{{ article.summary }}</h4>
@@ -12,14 +12,19 @@
         alt="{{ article.title }}"
         class="article-image"
       />
-      <div [innerHTML]="article.content"></div>
+      <!-- <p [innerHTML]="article.content"></p> -->
+      <app-formatter [content]="article.content"></app-formatter>
+    </div>
+    } @else if (article === undefined && nullArticle) {
+    <div>
+      <p>¡Artículo no encontrado!</p>
     </div>
     } @else {
     <div>
-      <p>Artículo no encontrado.</p>
+      <p>Cargando...</p>
     </div>
     }
   </div>
 
-  <app-footer [current]="'blog'"></app-footer>
+  <app-footer [current]="'article'"></app-footer>
 </div>

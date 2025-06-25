@@ -20,11 +20,18 @@ export class FooterComponent implements OnInit {
     [[], []],
     [[], []],
   ];
+  dark: boolean = false;
+  icon_color: string = '#ffffff';
 
   background: boolean = false;
 
   ngOnInit(): void {
     console.log(this.current);
+    if (this.current === 'article') {
+      this.dark = true;
+      this.current = 'blog';
+      this.icon_color = '#000000';
+    }
     this.routes = this.routes.filter((route) => route[0] !== this.current);
 
     this.links[0][0] = this.routes[0];

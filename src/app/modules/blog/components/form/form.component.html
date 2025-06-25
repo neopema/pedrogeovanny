@@ -1,3 +1,6 @@
+@if(current_password != master_password){
+<input type="text" [(ngModel)]="current_password" />
+} @else if(current_password == master_password){
 <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
   <pre>{{ articleForm.value | json }}</pre>
   <div>
@@ -83,3 +86,4 @@
     {{ isEditMode ? "Actualizar" : "Crear" }}
   </button>
 </form>
+}

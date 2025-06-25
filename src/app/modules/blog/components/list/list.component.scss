@@ -1,3 +1,96 @@
-#blog {
-  overflow-y: scroll;
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Special+Gothic+Expanded+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap");
+
+#blog::before {
+  background-image: url(../../../../../../public/images/blog.png);
+  background-position: 38% 54%;
+  background-size: auto 140%;
+  // filter: blur(0.36rem);
+}
+
+.content {
+  // overflow-y: scroll;
+  display: grid;
+  grid-template-rows: auto auto auto;
+
+  .substance {
+    display: flex;
+    overflow-x: auto; /* Scroll horizontal */
+    gap: 1.8rem; /* Espacio entre artículos */
+    padding: 1.2rem;
+    padding-bottom: 0;
+    scroll-behavior: smooth; /* Desplazamiento suave */
+    height: 54vh;
+  }
+}
+
+.article {
+  width: min-content;
+  height: 100%;
+
+  img {
+    height: 63%;
+    min-width: 18rem;
+    max-width: 80vw;
+    border-radius: 1.8rem;
+    object-fit: cover;
+  }
+
+  h2 {
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.8rem;
+    line-height: 90%;
+    margin-block-start: 0.9rem;
+    margin-block-end: 0;
+  }
+
+  p,
+  a {
+    font-size: 0.8rem;
+  }
+}
+
+@media (width >= 1024px) {
+  #blog::before {
+    background-position: center center;
+    background-size: auto 150%;
+    filter: blur(0rem);
+  }
+
+  .content {
+    display: grid;
+    grid-template-rows: auto auto auto;
+
+    .substance {
+      padding: 1.8rem;
+    }
+
+    .article {
+      width: min-content;
+      height: 100%;
+
+      img {
+        height: 72%;
+        max-width: 36vw;
+      }
+
+      h2 {
+        font-family: "Cal Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: calc(0.09vw);
+        font-size: 1.8rem;
+        line-height: 90%;
+        margin-block-start: 0.9rem;
+        margin-block-end: 0;
+      }
+
+      p,
+      a {
+        font-size: 0.8rem;
+      }
+    }
+  }
 }

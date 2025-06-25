@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
+  FormsModule,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
@@ -9,10 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from '../../../../interfaces/article';
 import { FAKE_ARTICLES } from '../../data/fake-articles';
 import { JsonPipe, NgIf } from '@angular/common';
+import { ArticlesService } from '../../../../services/articles.service';
 
 @Component({
   selector: 'app-form',
-  imports: [NgIf, ReactiveFormsModule, JsonPipe],
+  imports: [NgIf, ReactiveFormsModule, JsonPipe, FormsModule],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
 })
@@ -21,11 +23,14 @@ export class FormComponent implements OnInit {
   isEditMode: boolean = false;
   articleId: number | null = null;
   article: Article | null = null;
+  master_password: string = 'xot1g93+yIn_br+bu5';
+  current_password: string = '';
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private articlesService: ArticlesService
   ) {
     this.articleForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
@@ -42,10 +47,10 @@ export class FormComponent implements OnInit {
       if (id) {
         console.log('Editando artículo con ID:', id);
         this.isEditMode = true;
-        this.articleId = +id;
+        this.articleId = id;
         // Simula obtener el artículo a editar
         this.article =
-          FAKE_ARTICLES.find((a) => a.id === this.articleId) || null;
+          FAKE_ARTICLES.find((a) => a._id === this.articleId) || null;
 
         console.log('Artículo encontrado:', this.article);
         if (this.article) {
@@ -70,7 +75,20 @@ export class FormComponent implements OnInit {
     if (this.articleForm.invalid) {
       return;
     }
+    if (this.isEditMode && this.articleId) {
+      return;
+    }
 
-    console.log(this.articleForm);
+    const articleData: Article = this.articleForm.value;
+    console.log('Datos del artículo a crear:', articleData);
+
+    this.articlesService.createArticle(articleData).subscribe({
+      next: (res) => {
+        this.router.navigate(['/blog']); // ejemplo: ir a la lista de artículos
+      },
+      error: (err) => {
+        console.error('Error al crear artículo:', err);
+      },
+    });
   }
 }

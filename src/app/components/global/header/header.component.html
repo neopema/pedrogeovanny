@@ -1,6 +1,10 @@
-<header>
+<header [class.dark]="title == ''">
   <div class="title">
     <h1 class="font-big-shoulders-inline">pedro geovanny</h1>
+    @if (title != '') {
     <h2 class="font-roboto">> {{ title }}</h2>
+    }@else{
+    <a href="/blog" class="font-roboto">< back to blog</a>
+    }
   </div>
 </header>

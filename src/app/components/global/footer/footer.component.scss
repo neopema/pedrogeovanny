@@ -10,7 +10,19 @@ footer {
   margin-bottom: 0 !important;
 
   &.dark {
-    background-color: rgba(0, 0, 8, 0.18);
+    // background-color: rgba(0, 0, 8, 0.18);
+    nav {
+      ul {
+        li {
+          a {
+            color: black;
+            &:hover {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
   }
 
   div.social-media {
@@ -34,6 +46,14 @@ footer {
       li {
         a {
           font-size: 0.81rem;
+          &::selection {
+            background: #000000;
+            color: #fff; /* Color blanco para el texto seleccionado */
+          }
+          &::-moz-selection {
+            background: #000000;
+            color: #fff; /* Color blanco para el texto seleccionado */
+          }
         }
       }
     }

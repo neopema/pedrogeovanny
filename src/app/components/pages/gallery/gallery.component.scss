@@ -16,9 +16,78 @@
   // animation: rotate 81s linear infinite;
 }
 
+#gallery {
+  overflow-y: scroll;
+}
+
 .content {
   display: grid;
   grid-template-rows: auto 1fr auto;
+}
+
+.archive {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  grid-column-gap: 0.45rem;
+  grid-row-gap: 0.45rem;
+  height: 180vh;
+  padding: 0 1.26rem;
+
+  div {
+    background-position: center;
+    background-size: cover;
+    border-radius: 1.8rem;
+  }
+}
+
+.div1 {
+  grid-area: 4 / 2 / 5 / 3;
+  background-image: url(../../../../../public/images/archive/abju_shot.jfif);
+}
+.div2 {
+  grid-area: 1 / 3 / 3 / 5;
+  background-image: url(../../../../../public/images/archive/me_gif.webp);
+}
+.div3 {
+  grid-area: 4 / 1 / 6 / 2;
+  background-image: url(../../../../../public/images/archive/DSC_0719.jpg);
+}
+.div4 {
+  grid-area: 7 / 3 / 9 / 4;
+  background-image: url(../../../../../public/images/archive/DSC_0758.jpg);
+}
+.div5 {
+  grid-area: 3 / 4 / 5 / 5;
+  background-image: url(../../../../../public/images/archive/IMG_9031.JPG);
+}
+.div6 {
+  grid-area: 3 / 1 / 4 / 4;
+  background-image: url(../../../../../public/images/archive/font-des.jpg);
+}
+.div7 {
+  grid-area: 5 / 2 / 7 / 5;
+  background-image: url(../../../../../public/images/archive/me.JPG);
+}
+.div8 {
+  grid-area: 7 / 1 / 9 / 3;
+  background-image: url(../../../../../public/images/archive/adellupov.jpg);
+}
+.div9 {
+  grid-area: 4 / 3 / 5 / 4;
+  background-image: url(../../../../../public/images/archive/cuadricartoon.png);
+}
+.div10 {
+  grid-area: 7 / 4 / 9 / 5;
+  background-image: url(../../../../../public/images/archive/DSC_0754.jpg);
+}
+.div11 {
+  grid-area: 1 / 1 / 3 / 3;
+  background-image: url(../../../../../public/images/archive/gusaneo_0.png);
+}
+.div12 {
+  grid-area: 6 / 1 / 7 / 2;
+  background-image: url(../../../../../public/images/archive/animation.png);
 }
 
 .modal {
@@ -26,23 +95,28 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(0.72rem);
+  height: 100vh;
+  height: 100svh;
 
   div.modal-grid {
     display: grid;
     width: 100%;
-    height: 100%;
-    grid-template-rows: auto auto auto;
+    height: 150%;
+    background-color: rgba(0, 0, 0, 0.8);
+    grid-template-rows: min-content 54vh min-content auto;
+    backdrop-filter: blur(0.72rem);
     div.title {
       h2 {
+        max-width: 54%;
+        //hacer que el texto salte de linea si es muy largo
+        word-break: break-word;
         display: inline-block;
         margin-block-end: 0;
         margin-block-start: 0;
         padding: 1.8rem;
       }
       a {
+        display: inline-block;
         float: right;
         padding: 1.8rem;
         user-select: none;
@@ -51,17 +125,16 @@
     }
 
     div.image {
-      height: 80vh;
+      height: 54vh;
       text-align: center;
       img {
-        height: 100%;
-        width: auto;
+        width: 90%;
       }
     }
 
     div.desc {
       padding: 1.8rem;
-      padding-top: 0.9rem;
+      // padding-top: 0.9rem;
       text-align: center;
     }
   }
@@ -73,12 +146,54 @@
 
 @media (width >= 1024px) {
   #gallery::before {
-    background-position: 36% 63%;
-    background-size: auto 150%;
-    filter: blur(0.72rem);
+    background-position: 36% bottom;
+    background-size: auto 162%;
+    filter: blur(0.45rem);
   }
 
-  .gallery {
+  #gallery {
+    overflow-y: hidden;
+  }
+
+  .modal {
+    div.modal-grid {
+      display: grid;
+      width: 100%;
+      height: 100%;
+      grid-template-rows: auto auto auto;
+      div.title {
+        h2 {
+          display: inline-block;
+          margin-block-end: 0;
+          margin-block-start: 0;
+          padding: 1.8rem;
+        }
+        a {
+          float: right;
+          padding: 1.8rem;
+          user-select: none;
+          cursor: pointer;
+        }
+      }
+
+      div.image {
+        height: 80vh;
+        text-align: center;
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+
+      div.desc {
+        padding: 1.8rem;
+        padding-top: 0.9rem;
+        text-align: center;
+      }
+    }
+  }
+
+  .archive {
     height: 100%;
     display: grid;
     padding: 0 1.8rem;
@@ -88,9 +203,7 @@
     grid-row-gap: 0.45rem;
 
     div {
-      background-position: center;
-      background-size: cover;
-      border-radius: 1.8rem;
+      cursor: pointer;
     }
   }
 

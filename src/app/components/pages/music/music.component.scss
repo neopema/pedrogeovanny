@@ -7,7 +7,7 @@
 
 @property --angle {
   syntax: "<angle>";
-  initial-value: -70deg;
+  initial-value: 0deg;
   inherits: false;
 }
 
@@ -57,21 +57,21 @@
 }
 
 #music::before {
-  background-image: url(../../../../../public/images/music.png);
+  background-image: url(../../../../../public/images/music_.png);
   background-position: 63% bottom;
   background-size: auto 100%;
-  filter: blur(0.36rem);
+  // filter: blur(0.36rem);
 
   border-image: fill 1
     conic-gradient(
-      from 0deg in oklch,
+      from var(--angle) in oklch,
       var(--color4) 9%,
       var(--color3) 18%,
       var(--color2) 27%,
       var(--color1) 45%,
       var(--color4) 72%
     );
-  // animation: rotate 81s linear infinite;
+  animation: rotate 81s linear infinite;
 }
 
 header {
@@ -194,13 +194,13 @@ div.shell {
 
 @keyframes rotate {
   to {
-    --angle: 290deg;
+    --angle: 360deg;
   }
 }
 
 @media (width >= 750px) {
   #music::before {
-    filter: blur(0.63rem);
+    filter: blur(0rem);
   }
 }
 

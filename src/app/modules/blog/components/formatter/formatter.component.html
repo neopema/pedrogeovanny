@@ -1,0 +1,11 @@
+<div class="formatted">
+  @for(p of formattedContent; track $index){
+  <p>
+    @for(content of p; track $index){ @if(content === 'br'){
+    <br />
+    } @if(content != 'br') {
+    {{ content }}
+    } }
+  </p>
+  }
+</div>

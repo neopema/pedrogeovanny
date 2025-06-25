@@ -2,15 +2,15 @@
   <app-header [title]="'blog'"></app-header>
 
   <div class="substance">
-    <div *ngFor="let article of articles" class="">
+    <div *ngFor="let article of articles" class="article">
       <img
         [src]="article.image"
         alt="{{ article.title }}"
         class="article-image"
       />
       <h2>{{ article.title }}</h2>
-      <p>{{ article.summary }}</p>
-      <a [routerLink]="['/blog', article.slug]">Leer más</a>
+      <p class="font-roboto">{{ article.summary }}</p>
+      <a class="font-roboto" [routerLink]="['/blog', article.slug]">Leer más</a>
     </div>
   </div>
 

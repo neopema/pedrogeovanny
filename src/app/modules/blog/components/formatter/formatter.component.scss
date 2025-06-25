@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+.formatted {
+  padding: 1.8rem;
+  * {
+    font-family: "DM Mono", monospace;
+    color: black;
+  }
+
+  p {
+    text-align: justify;
+    line-height: 180%;
+    margin-block-end: 1.8rem;
+    margin-block-start: 1.8rem;
+    &::selection {
+      background: #b717c5;
+      color: #fff; /* Color blanco para el texto seleccionado */
+    }
+    &::-moz-selection {
+      background: #b717c5;
+      color: #fff; /* Color blanco para el texto seleccionado */
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  .formatted {
+    padding: 1.8rem 18vw;
+  }
+}
+@media (width >= 1430px) {
+  .formatted {
+    padding: 1.8rem 26vw;
+  }
+}

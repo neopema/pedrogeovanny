@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap");
+
+.content {
+  overflow: auto !important;
+}
+
+#article::before {
+  background-image: url(../../../../../../public/images/article.png);
+  background-position: 38% 54%;
+  background-size: auto 140%;
+}
+
+.substance {
+  * {
+    color: black;
+  }
+  div {
+    font-family: "DM Mono", monospace;
+    h1,
+    h4,
+    p {
+      padding: 1.8rem;
+    }
+    h4,
+    p {
+      text-align: justify;
+    }
+    h1 {
+      font-family: "Cal Sans", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      padding: 0 1.7rem;
+      font-size: 3.6rem;
+      margin-block-start: 0.9rem;
+      margin-block-end: 0;
+      line-height: 90%;
+      &::selection {
+        background: #c5172e;
+        color: #fff; /* Color blanco para el texto seleccionado */
+      }
+      &::-moz-selection {
+        background: #c5172e;
+        color: #fff; /* Color blanco para el texto seleccionado */
+      }
+    }
+    h4 {
+      font-weight: 400;
+      font-size: 1.17rem;
+      &::selection {
+        background: #17c55a;
+        color: #fff; /* Color blanco para el texto seleccionado */
+      }
+      &::-moz-selection {
+        background: #17c55a;
+        color: #fff; /* Color blanco para el texto seleccionado */
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 9rem;
+      object-fit: cover;
+      &::selection {
+        background: #dbce12;
+      }
+      &::-moz-selection {
+        background: #dbce12;
+      }
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  #article::before {
+    background-position: center center;
+    background-size: 100% 100%;
+  }
+
+  .substance {
+    div {
+      h1,
+      h4,
+      p {
+        padding: 1.8rem 18vw;
+      }
+
+      h1,
+      h4 {
+        text-align: center;
+      }
+
+      h1 {
+        line-height: 100%;
+      }
+
+      img {
+        height: 18rem;
+      }
+    }
+  }
+}
+
+@media (width >= 1430px) {
+  .substance {
+    div {
+      h1,
+      h4,
+      p {
+        padding: 1.8rem 26vw;
+      }
+    }
+  }
+}
