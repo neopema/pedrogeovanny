@@ -91,4 +91,45 @@ export class FormComponent implements OnInit {
       },
     });
   }
+
+  addLink() {
+    const textoParaAgregar =
+      '--link -link-text Text -end-link-text -link-href /href -end-link-href --end-link';
+    const contenidoActual = this.articleForm.get('content')?.value || '';
+    const nuevoContenido = contenidoActual + textoParaAgregar;
+
+    this.articleForm.patchValue({
+      content: nuevoContenido,
+    });
+  }
+
+  addBold() {
+    const textoParaAgregar = '--bold Text --end-bold';
+    const contenidoActual = this.articleForm.get('content')?.value || '';
+    const nuevoContenido = contenidoActual + textoParaAgregar;
+
+    this.articleForm.patchValue({
+      content: nuevoContenido,
+    });
+  }
+
+  addJump() {
+    const textoParaAgregar = '--line-jump';
+    const contenidoActual = this.articleForm.get('content')?.value || '';
+    const nuevoContenido = contenidoActual + textoParaAgregar;
+
+    this.articleForm.patchValue({
+      content: nuevoContenido,
+    });
+  }
+
+  addParagraph() {
+    const textoParaAgregar = '--new-paragraph';
+    const contenidoActual = this.articleForm.get('content')?.value || '';
+    const nuevoContenido = contenidoActual + textoParaAgregar;
+
+    this.articleForm.patchValue({
+      content: nuevoContenido,
+    });
+  }
 }

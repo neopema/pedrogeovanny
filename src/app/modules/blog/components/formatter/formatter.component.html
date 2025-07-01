@@ -1,11 +1,15 @@
 <div class="formatted">
   @for(p of formattedContent; track $index){
   <p>
-    @for(content of p; track $index){ @if(content === 'br'){
+    @for(content of p; track $index){ @switch(content[0]) { @case('br'){
     <br />
-    } @if(content != 'br') {
-    {{ content }}
-    } }
+    } @case('text'){
+    {{ content[1] }}
+    } @case ('bold') {
+    <b>{{ content[1] }}</b>
+    } @case ('link') {
+    <a href="{{ content[2] }}" target="_blank">{{ content[1] }}</a>
+    }} }
   </p>
   }
 </div>

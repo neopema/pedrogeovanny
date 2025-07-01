@@ -8,6 +8,27 @@
   // filter: blur(0.36rem);
 }
 
+::-webkit-scrollbar {
+  width: 0.36rem;
+  height: 0.54rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.27);
+  border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.54);
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track:hover {
+  background-color: rgba(20, 21, 255, 0.27);
+}
+
 .content {
   // overflow-y: scroll;
   display: grid;

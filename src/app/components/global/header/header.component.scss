@@ -23,6 +23,22 @@ header {
         background: #000000;
         color: #fff; /* Color blanco para el texto seleccionado */
       }
+
+      a {
+        text-decoration: none;
+        &:hover {
+          background-color: rgba($color: #000000, $alpha: 1);
+          color: #ffffff !important;
+        }
+        &::selection {
+          background: #000000;
+          color: #fff; /* Color blanco para el texto seleccionado */
+        }
+        &::-moz-selection {
+          background: #000000;
+          color: #fff; /* Color blanco para el texto seleccionado */
+        }
+      }
     }
 
     h2 {

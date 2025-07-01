@@ -1,0 +1,177 @@
+#linktree::before {
+  background-image: url(../../../../public/images/me.webp);
+  background-position: 45% 540%;
+  background-size: auto 110%;
+
+  border-image: fill 1
+    linear-gradient(
+      rgba(150, 0, 163, 0.27) 1.8%,
+      rgba(175, 143, 1, 0.3) 9%,
+      rgba(145, 255, 20, 0.366) 18%,
+      rgba(0, 0, 0, 0.45) 27%,
+      rgb(14, 14, 14, 1),
+      rgb(14, 14, 14, 1),
+      rgb(14, 14, 14, 1),
+      rgb(14, 14, 14, 1)
+    );
+  animation: rotate 45s linear infinite;
+  // filter: blur(0.36rem);
+}
+
+#linktree {
+  overflow-y: auto;
+  text-align: center;
+  padding: 0 1.8rem;
+  header {
+    h1 {
+      font-size: 4.5rem;
+      mix-blend-mode: difference;
+      filter: contrast(150%);
+    }
+  }
+
+  section.links {
+    display: grid;
+    gap: 0.9rem;
+    div.link {
+      //   background-color: gray;
+      border-radius: 1.17rem;
+      height: 4.5rem;
+      text-align: left;
+      background-size: 170% auto;
+      background-position: center center;
+      a {
+        display: block;
+        padding: 0 0.9rem;
+        height: 100%;
+        align-content: center;
+        mix-blend-mode: difference;
+        filter: contrast(150%);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+          mix-blend-mode: difference;
+        }
+      }
+    }
+
+    div.main {
+      height: 7.2rem;
+      background-image: url(../../../../public/images/shot.png);
+      span {
+        display: block;
+        font-size: 0.9rem;
+        padding: 0.27rem 0.9rem;
+        padding-top: 0.45rem;
+        color: rgba(0, 255, 0, 0.72);
+        filter: contrast(1000%);
+        mix-blend-mode: difference;
+        font-weight: 800;
+      }
+      a {
+        height: unset;
+        font-size: 1.7rem;
+      }
+    }
+
+    .web {
+      background-image: url(../../../../public/images/shot.png);
+      //   filter: blur(0.54rem);
+    }
+
+    .blog {
+      background-image: url(../../../../public/images/shot_b.png);
+    }
+
+    .music {
+      background-image: url(../../../../public/images/que-bailen-los-gusanos-cover.png);
+    }
+
+    .email {
+      background-image: url(../../../../public/images/article.png);
+    }
+  }
+
+  footer {
+    div.social-media {
+      padding: 3.6rem 0;
+      a {
+        display: inline-block;
+        margin: 0 0.72rem;
+      }
+    }
+  }
+}
+
+@media (width >= 720px) {
+  #linktree::before {
+    // filter: blur(0.45rem);
+    background-position: 45% 450%;
+    background-size: auto 110%;
+    //   conic-gradient(
+    //     from 0deg in oklch,
+    //     rgba(150, 0, 163, 0.27) 9%,
+    //     rgba(175, 143, 1, 0.3) 18%,
+    //     rgba(145, 255, 20, 0.366) 27%,
+    //     rgba(163, 0, 22, 0.36) 45%,
+    //     rgba(150, 0, 163, 0.27) 72%
+    //   );
+  }
+
+  #linktree {
+    section.links {
+      padding: 0 7.2rem;
+    }
+
+    footer {
+      div.social-media {
+        a {
+          display: inline-block;
+          margin: 0 0.9rem;
+        }
+      }
+    }
+  }
+}
+
+@media (width >= 800px) {
+  #linktree::before {
+    // filter: blur(0.45rem);
+    background-position: 45% 540%;
+    background-size: auto 110%;
+  }
+}
+
+@media (width >= 1024px) {
+  #linktree::before {
+    // filter: blur(0.45rem);
+    background-size: 180% auto;
+    background-position: center 2600%;
+  }
+
+  #linktree {
+    section.links {
+      padding: 0 15.3rem;
+    }
+  }
+}
+
+@media (width >= 1200px) {
+  #linktree::before {
+    // filter: blur(0.45rem);
+    background-size: 110% auto;
+    background-position: center 117%;
+  }
+
+  #linktree {
+    header {
+      h1 {
+        font-size: 7.2rem;
+      }
+    }
+    section.links {
+      padding: 0 36vw;
+    }
+  }
+}

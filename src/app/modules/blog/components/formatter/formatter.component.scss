@@ -20,6 +20,27 @@
       background: #b717c5;
       color: #fff; /* Color blanco para el texto seleccionado */
     }
+
+    a {
+      text-decoration: none;
+      font-weight: 600;
+      &::selection {
+        background: #c51734;
+        color: #fff; /* Color blanco para el texto seleccionado */
+      }
+      &::-moz-selection {
+        background: #c51734;
+        color: #fff; /* Color blanco para el texto seleccionado */
+      }
+      &:hover {
+        text-decoration: underline;
+        color: #c51734;
+      }
+    }
+
+    b {
+      font-weight: 500;
+    }
   }
 }
 

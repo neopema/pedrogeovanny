@@ -3,6 +3,10 @@
 } @else if(current_password == master_password){
 <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
   <pre>{{ articleForm.value | json }}</pre>
+  <button (click)="addLink()">Añadir link</button>
+  <button (click)="addBold()">Bold</button>
+  <button (click)="addJump()">line jump</button>
+  <button (click)="addParagraph()">new paragraph</button>
   <div>
     <label for="title">Título</label>
     <input id="title" formControlName="title" />

@@ -5,7 +5,6 @@
     @if(article){
     <div id="body">
       <h1>{{ article.title }}</h1>
-
       <h4>{{ article.summary }}</h4>
       <img
         [src]="article.image"
@@ -14,6 +13,8 @@
       />
       <!-- <p [innerHTML]="article.content"></p> -->
       <app-formatter [content]="article.content"></app-formatter>
+
+      <h5>Publicado el {{ postDate }}</h5>
     </div>
     } @else if (article === undefined && nullArticle) {
     <div>

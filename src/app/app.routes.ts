@@ -5,6 +5,7 @@ import { BioComponent } from './components/pages/bio/bio.component';
 import { GamesComponent } from './components/pages/games/games.component';
 import { GalleryComponent } from './components/pages/gallery/gallery.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { LinktreeComponent } from './components/linktree/linktree.component';
 
 export const routes: Routes = [
   {
@@ -41,5 +42,10 @@ export const routes: Routes = [
     path: 'blog',
     loadChildren: () =>
       import('./modules/blog/blog.module').then((m) => m.BlogModule),
+  },
+  {
+    path: 'linktree',
+    component: LinktreeComponent,
+    title: 'pedro geovanny | linktree',
   },
 ];
