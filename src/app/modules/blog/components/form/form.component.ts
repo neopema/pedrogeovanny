@@ -21,7 +21,7 @@ import { ArticlesService } from '../../../../services/articles.service';
 export class FormComponent implements OnInit {
   articleForm: FormGroup;
   isEditMode: boolean = false;
-  articleId: number | null = null;
+  articleId: string | null = null;
   article: Article | null = null;
   master_password: string = 'xot1g93+yIn_br+bu5';
   current_password: string = '';
@@ -48,25 +48,30 @@ export class FormComponent implements OnInit {
         console.log('Editando artículo con ID:', id);
         this.isEditMode = true;
         this.articleId = id;
-        // Simula obtener el artículo a editar
-        this.article =
-          FAKE_ARTICLES.find((a) => a._id === this.articleId) || null;
 
-        console.log('Artículo encontrado:', this.article);
-        if (this.article) {
-          this.articleForm.patchValue({
-            title: this.article.title,
-            slug: this.article.slug,
-            summary: this.article.summary,
-            content: this.article.content,
-            image: this.article.image,
-          });
+        this.articlesService.getArticleById(id).subscribe({
+          next: (data) => {
+            this.article = data;
+            if (this.article) {
+              this.articleForm.patchValue({
+                title: this.article.title,
+                slug: this.article.slug,
+                summary: this.article.summary,
+                content: this.article.content,
+                image: this.article.image,
+              });
 
-          console.log(
-            'Formulario actualizado con los datos del artículo:',
-            this.articleForm
-          );
-        }
+              console.log(
+                'Formulario actualizado con los datos del artículo:',
+                this.articleForm
+              );
+            }
+          },
+          error: (error) => {
+            console.error('Error al obtener el artículo:', error);
+            this.article = null;
+          },
+        });
       }
     });
   }
@@ -75,16 +80,28 @@ export class FormComponent implements OnInit {
     if (this.articleForm.invalid) {
       return;
     }
+    const articleData: Article = this.articleForm.value;
+    console.log('Datos del artículo a crear:', articleData);
     if (this.isEditMode && this.articleId) {
+      this.articlesService
+        .updateArticle(this.articleId, articleData)
+        .subscribe({
+          next: (res) => {
+            this.router.navigate(['/blog', articleData.slug]);
+          },
+          error: (err) => {
+            console.error('Error al actualizar artículo:', err);
+            return;
+          },
+        });
+
       return;
     }
 
-    const articleData: Article = this.articleForm.value;
-    console.log('Datos del artículo a crear:', articleData);
-
     this.articlesService.createArticle(articleData).subscribe({
       next: (res) => {
-        this.router.navigate(['/blog']); // ejemplo: ir a la lista de artículos
+        // this.router.navigate(['/blog']); // ejemplo: ir a la lista de artículos
+        console.log('Artículo creado:', res);
       },
       error: (err) => {
         console.error('Error al crear artículo:', err);
@@ -125,6 +142,37 @@ export class FormComponent implements OnInit {
 
   addParagraph() {
     const textoParaAgregar = '--new-paragraph';
+    const contenidoActual = this.articleForm.get('content')?.value || '';
+    const nuevoContenido = contenidoActual + textoParaAgregar;
+
+    this.articleForm.patchValue({
+      content: nuevoContenido,
+    });
+  }
+
+  addTitle() {
+    const textoParaAgregar = '--title Title --end-title';
+    const contenidoActual = this.articleForm.get('content')?.value || '';
+    const nuevoContenido = contenidoActual + textoParaAgregar;
+
+    this.articleForm.patchValue({
+      content: nuevoContenido,
+    });
+  }
+
+  addSubtitle() {
+    const textoParaAgregar = '--subtitle Subtitle --end-subtitle';
+    const contenidoActual = this.articleForm.get('content')?.value || '';
+    const nuevoContenido = contenidoActual + textoParaAgregar;
+
+    this.articleForm.patchValue({
+      content: nuevoContenido,
+    });
+  }
+
+  addImage() {
+    const textoParaAgregar =
+      '--img -src /path/to/image.jpg -end-src -img-sub Subtitle -end-img-sub -img-alt Alt text -end-img-alt --end-img';
     const contenidoActual = this.articleForm.get('content')?.value || '';
     const nuevoContenido = contenidoActual + textoParaAgregar;
 

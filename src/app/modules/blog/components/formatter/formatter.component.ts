@@ -14,6 +14,10 @@ export class FormatterComponent {
   l_text: boolean = false;
   l_url: boolean = false;
 
+  img_src: boolean = false;
+  img_alt: boolean = false;
+  img_sub: boolean = false;
+
   ngOnInit(): void {
     console.log('Content to format:', this.content);
     this.formatContent();
@@ -26,8 +30,12 @@ export class FormatterComponent {
     const len = text_words.length;
     let i = 0;
     let current_link: string[] = [];
+    let current_img: string[] = [];
     let bold = false;
     let link = false;
+    let title = false;
+    let subtitle = false;
+    let img = false;
 
     console.log('Text words:', text_words);
 
@@ -67,6 +75,9 @@ export class FormatterComponent {
           link = false;
           current_paragraph.push(current_link);
           current_link = [];
+          if (i === len) {
+            this.formattedContent.push(current_paragraph);
+          }
           continue;
         }
         current_link = this.manageLink(word, current_link);
@@ -88,9 +99,83 @@ export class FormatterComponent {
           current_text = current_text.replace(/\s+$/, ''); // Remove trailing spaces
           current_paragraph.push(['bold', current_text.trim()]);
           current_text = '';
+          if (i === len) {
+            this.formattedContent.push(current_paragraph);
+          }
           continue;
         }
         current_text += word + ' ';
+        continue;
+      }
+
+      if (word == '--title') {
+        title = true;
+        if (current_text != '') {
+          current_paragraph.push(['text', current_text.trim()]);
+          current_text = '';
+        }
+        continue;
+      }
+
+      if (title) {
+        if (word == '--end-title') {
+          title = false;
+          current_text = current_text.replace(/\s+$/, ''); // Remove trailing spaces
+          current_paragraph.push(['title', current_text.trim()]);
+          current_text = '';
+          if (i === len) {
+            this.formattedContent.push(current_paragraph);
+          }
+          continue;
+        }
+        current_text += word + ' ';
+        continue;
+      }
+
+      if (word == '--subtitle') {
+        subtitle = true;
+        if (current_text != '') {
+          current_paragraph.push(['text', current_text.trim()]);
+          current_text = '';
+        }
+        continue;
+      }
+
+      if (subtitle) {
+        if (word == '--end-subtitle') {
+          subtitle = false;
+          current_text = current_text.replace(/\s+$/, ''); // Remove trailing spaces
+          current_paragraph.push(['subtitle', current_text.trim()]);
+          current_text = '';
+          if (i === len) {
+            this.formattedContent.push(current_paragraph);
+          }
+          continue;
+        }
+        current_text += word + ' ';
+        continue;
+      }
+
+      if (word == '--img') {
+        img = true;
+        if (current_text != '') {
+          current_paragraph.push(['text', current_text.trim()]);
+          current_text = '';
+        }
+        continue;
+      }
+
+      if (img) {
+        if (word == '--end-img') {
+          img = false;
+          current_paragraph.push(current_img);
+          current_img = [];
+          if (i === len) {
+            this.formattedContent.push(current_paragraph);
+          }
+          continue;
+        }
+        current_img = this.manageImg(word, current_img);
         continue;
       }
 
@@ -100,9 +185,59 @@ export class FormatterComponent {
         if (current_text != '') {
           current_paragraph.push(['text', current_text.trim()]);
           this.formattedContent.push(current_paragraph);
+        } else {
+          this.formattedContent.push(current_paragraph);
         }
       }
     }
+  }
+
+  manageImg(word: string, current: string[]): string[] {
+    if (word == '-end-src') {
+      this.img_src = false;
+    }
+
+    if (word == '-end-img-sub') {
+      this.img_sub = false;
+      current[2] = current[2].replace(/\s+$/, '');
+      current[2] = current[2].trim();
+    }
+
+    if (word == '-end-img-alt') {
+      this.img_alt = false;
+      current[3] = current[3].replace(/\s+$/, '');
+      current[3] = current[3].trim();
+    }
+
+    if (word == '-src') {
+      this.img_src = true;
+      current = ['img', '', '', ''];
+      return current;
+    }
+
+    if (word == '-img-sub') {
+      this.img_sub = true;
+      return current;
+    }
+
+    if (word == '-img-alt') {
+      this.img_alt = true;
+      return current;
+    }
+
+    if (this.img_sub) {
+      current[2] += word + ' ';
+    }
+
+    if (this.img_src) {
+      current[1] += word;
+    }
+
+    if (this.img_alt) {
+      current[3] += word + ' ';
+    }
+
+    return current;
   }
 
   manageLink(word: string, current: string[]): string[] {
@@ -114,7 +249,7 @@ export class FormatterComponent {
     if (word == '-end-link-text') {
       this.l_text = false;
       link_text = current[1];
-      link_text = link_text.replace(/\s+$/, ''); // Remove trailing spaces
+      link_text = link_text.replace(/\s+$/, '');
       current[1] = link_text.trim();
     }
 

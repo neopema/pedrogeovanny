@@ -9,7 +9,17 @@
     <b>{{ content[1] }}</b>
     } @case ('link') {
     <a href="{{ content[2] }}" target="_blank">{{ content[1] }}</a>
-    }} }
+    }@case ('title') {
+    <h1>{{ content[1] }}</h1>
+    }@case ('subtitle') { 
+    <h2>{{ content[1] }}</h2>
+    }@case ('img') {
+      <div class="blog-image">
+        <img src="{{ content[1] }}" alt="{{ content[3] }}" />
+        <p>{{ content[2] }}</p>
+      </div>
+    }
+  } }
   </p>
   }
 </div>
