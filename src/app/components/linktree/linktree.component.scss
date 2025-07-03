@@ -5,9 +5,9 @@
 
   border-image: fill 1
     linear-gradient(
-      rgba(150, 0, 163, 0.27) 1.8%,
+      rgba(163, 0, 0, 0.36) 1.8%,
       rgba(175, 143, 1, 0.3) 9%,
-      rgba(145, 255, 20, 0.366) 18%,
+      rgba(212, 255, 20, 0.366) 18%,
       rgba(0, 0, 0, 0.45) 27%,
       rgb(14, 14, 14, 1),
       rgb(14, 14, 14, 1),
@@ -57,8 +57,20 @@
     }
 
     div.main {
+      backdrop-filter: blur(1.8rem);
       height: 7.2rem;
-      background-image: url(../../../../public/images/shot.png);
+      background-image: linear-gradient(
+          -36deg,
+          rgb(145, 255, 20),
+          rgb(175, 143, 1)
+        ),
+        url(../../../../public/images/gallery.jpg);
+      background-blend-mode: difference;
+      &:hover {
+        span {
+          color: rgba(255, 0, 0, 0.72);
+        }
+      }
       span {
         display: block;
         font-size: 0.9rem;
@@ -72,6 +84,8 @@
       a {
         height: unset;
         font-size: 1.7rem;
+        filter: none;
+        mix-blend-mode: normal;
       }
     }
 
